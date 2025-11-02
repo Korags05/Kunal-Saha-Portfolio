@@ -4,27 +4,32 @@ const TechStack = () => {
   const techCategories = [
     {
       title: "Languages",
-      color: "neon-orange",
+      borderColor: "border-neon-orange/50",
+      textColor: "text-neon-orange",
       techs: ["Kotlin", "Java", "Python", "C/C++"],
     },
     {
       title: "Android",
-      color: "neon-pink",
+      borderColor: "border-neon-pink/50",
+      textColor: "text-neon-pink",
       techs: ["Jetpack Compose", "Android Studio", "MVVM", "Dagger Hilt", "RoomDB", "Retrofit", "Gradle"],
     },
     {
       title: "Backend",
-      color: "neon-green",
+      borderColor: "border-neon-lime-green/50",
+      textColor: "text-neon-lime-green",
       techs: ["Spring Boot", "REST APIs", "JWT", "OAuth 2.0", "Docker", "Docker Compose", "Render"],
     },
     {
       title: "Databases",
-      color: "neon-blue",
+      borderColor: "border-neon-sky-blue/50",
+      textColor: "text-neon-sky-blue",
       techs: ["PostgreSQL", "Oracle", "MySQL", "NeonDB", "Render DB"],
     },
     {
       title: "Tools & Platforms",
-      color: "primary",
+      borderColor: "border-neon-silver/50",
+      textColor: "text-neon-silver",
       techs: ["Git/GitHub", "Linux", "Figma", "MCP Servers", "Firebase"],
     },
   ];
@@ -49,14 +54,14 @@ const TechStack = () => {
               className="p-6 bg-card-glass backdrop-blur-sm border-border/50 hover:border-border transition-all duration-300"
               style={{ animationDelay: `${catIndex * 100}ms` }}
             >
-              <h3 className={`text-xl font-bold mb-4 text-${category.color}`}>
+              <h3 className={`text-xl font-bold mb-4 ${category.textColor}`}>
                 {category.title}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {category.techs.map((tech, techIndex) => (
                   <div
                     key={techIndex}
-                    className={`px-3 py-1.5 rounded-lg border-2 border-${category.color}/50 text-${category.color} bg-card/50 backdrop-blur-sm hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-default`}
+                    className={`px-3 py-1.5 rounded-lg border-2 ${category.borderColor} ${category.textColor} bg-card/50 backdrop-blur-sm hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-default`}
                     style={{ animationDelay: `${(catIndex * category.techs.length + techIndex) * 30}ms` }}
                   >
                     <span className="font-mono font-medium text-xs">{tech}</span>

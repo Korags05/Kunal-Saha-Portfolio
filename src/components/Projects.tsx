@@ -24,6 +24,7 @@ const Projects = () => {
       tags: ["Gemini API", "Firebase Auth", "RoomDB", "Jetpack Compose", "Offline-First"],
       githubUrl: "https://github.com/Korags05/Healyks",
       demoUrl: "https://drive.google.com/file/d/1X3XRc2IX3FOaajgvObD62dqLSlmPRWTT/view",
+      status: "Hackathon",
     },
     {
       title: "Raiders' Reckoning",
@@ -35,6 +36,7 @@ const Projects = () => {
       tags: ["MVVM", "Dagger Hilt", "Google Sign-In", "Real-time", "Gamification"],
       githubUrl: "https://github.com/iot-lab-kiit/RaidersReckoningApp",
       demoUrl: "https://drive.google.com/file/d/1HtcpXRu68lOK1bmQAcBO3BZjtinjQnnI/view",
+      status: "Flagship Event",
     },
     {
       title: "FlashMob",

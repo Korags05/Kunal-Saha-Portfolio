@@ -53,8 +53,9 @@ export default {
         },
         "neon-orange": "hsl(var(--neon-orange))",
         "neon-pink": "hsl(var(--neon-pink))",
-        "neon-green": "hsl(var(--neon-green))",
-        "neon-blue": "hsl(var(--neon-blue))",
+        "neon-lime-green": "hsl(var(--neon-lime-green))",
+        "neon-sky-blue": "hsl(var(--neon-sky-blue))",
+        "neon-silver": "hsl(var(--neon-silver))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
