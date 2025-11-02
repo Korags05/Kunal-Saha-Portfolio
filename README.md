@@ -1,73 +1,80 @@
-# Welcome to your Lovable project
+# Kunal Saha | Personal Portfolio
 
-## Project info
+[![Live Site](https://img.shields.io/badge/Visit%20Portfolio-KunalSaha.vercel.app-2E8B57?style=for-the-badge&logo=vercel)](https://kunalsaha.vercel.app/)
+[![GitHub Repo](https://img.shields.io/badge/Source%20Code-Korags05%2FKunal--Saha--Portfolio-100000?style=for-the-badge&logo=github)](https://github.com/Korags05/Kunal-Saha-Portfolio)
 
-**URL**: https://lovable.dev/projects/d617dd63-2e39-4cc5-9b7c-2ee799849c35
+---
 
-## How can I edit this code?
+## 🚀 Overview
 
-There are several ways of editing your application.
+This is the official repository for **Kunal Saha's personal portfolio website**.
 
-**Use Lovable**
+This platform serves as a comprehensive showcase of my skills, professional experience, and a collection of projects I have worked on. The goal is to provide a clean, modern, and engaging user experience for potential employers, recruiters, and collaborators.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d617dd63-2e39-4cc5-9b7c-2ee799849c35) and start prompting.
+## ✨ Features
 
-Changes made via Lovable will be committed automatically to this repo.
+* **Modern & Responsive Design:** Optimized for seamless viewing across all devices (desktop, tablet, and mobile).
+* **Project Showcase:** Detailed cards for various projects with links to live demos and source code.
+* **Skills Matrix:** A clear overview of technical expertise and proficiencies.
+* **Contact Form/Information:** Easy and direct ways to get in touch.
+* **Smooth Navigation:** Intuitive and user-friendly structure for browsing content.
 
-**Use your preferred IDE**
+## 🛠️ Technologies Used
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+*(Note: This is a placeholder list based on common modern portfolio stacks. Please adjust it to reflect the actual technologies you used.)*
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+* **Frontend Library:** React / Next.js
+* **Styling:** Tailwind CSS / Styled Components
+* **Language:** JavaScript (ES6+)
+* **Deployment:** Vercel
+* **Other Tools:** HTML5, CSS3, npm/yarn
 
-Follow these steps:
+## 💻 Installation and Local Setup
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+To get a copy of this project up and running on your local machine for development and testing, follow these steps:
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Prerequisites
 
-# Step 3: Install the necessary dependencies.
-npm i
+You need to have **Node.js** and **npm** (or **yarn**) installed on your machine.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+### Steps
 
-**Edit a file directly in GitHub**
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/Korags05/Kunal-Saha-Portfolio.git](https://github.com/Korags05/Kunal-Saha-Portfolio.git)
+    ```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+2.  **Navigate to the project directory:**
+    ```bash
+    cd Kunal-Saha-Portfolio
+    ```
 
-**Use GitHub Codespaces**
+3.  **Install dependencies:**
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+4.  **Run the development server:**
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
 
-## What technologies are used for this project?
+5.  **View in browser:**
+    Open [http://localhost:3000](http://localhost:3000) (or the port specified in your console) to view the application.
 
-This project is built with:
+## 🤝 Connect with Kunal Saha
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Feel free to connect with me!
 
-## How can I deploy this project?
+* [**Live Portfolio**](https://kunalsaha.vercel.app/)
+* [**LinkedIn Profile**](https://linkedin.com/in/YourLinkedInUsername) *(Replace with actual link)*
+* [**GitHub Profile**](https://github.com/Korags05)
+* **Email:** your.email@example.com *(Replace with actual email)*
 
-Simply open [Lovable](https://lovable.dev/projects/d617dd63-2e39-4cc5-9b7c-2ee799849c35) and click on Share -> Publish.
+## ⚖️ License
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Distributed under the **MIT License**. See `LICENSE` for more information.
