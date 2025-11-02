@@ -71,7 +71,7 @@ You need to have **Node.js** and **npm** (or **yarn**) installed on your machine
 Feel free to connect with me!
 
 * [**Live Portfolio**](https://kunalsaha.vercel.app/)
-* [**LinkedIn Profile**](https://linkedin.com/in/YourLinkedInUsername) *(Replace with actual link)*
+* [**LinkedIn Profile**](https://linkedin.com/in/kunalsaha1107) *(Replace with actual link)*
 * [**GitHub Profile**](https://github.com/Korags05)
 * **Email:** your.email@example.com *(Replace with actual email)*
 
@@ -79,7 +79,3 @@ Feel free to connect with me!
 
 Vibecoded this entire portfolio with lovable AI energy ⚡❤️
 
-
-## ⚖️ License
-
-Distributed under the **MIT License**. See `LICENSE` for more information.
