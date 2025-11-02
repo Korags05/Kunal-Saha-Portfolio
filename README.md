@@ -75,6 +75,11 @@ Feel free to connect with me!
 * [**GitHub Profile**](https://github.com/Korags05)
 * **Email:** your.email@example.com *(Replace with actual email)*
 
+## ⚡ Fun Fact
+
+Vibecoded this entire portfolio with lovable AI energy ⚡❤️
+
+
 ## ⚖️ License
 
 Distributed under the **MIT License**. See `LICENSE` for more information.
