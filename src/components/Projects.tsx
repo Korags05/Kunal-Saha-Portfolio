@@ -4,15 +4,15 @@ const Projects = () => {
   const projects = [
     {
       title: "NexterDay",
-      description: "College Event Management Platform (Under Institutional Review)",
+      description: "College Event Management Platform",
       highlights: [
         "Built a full-stack Android event platform for 7,000+ students using Jetpack Compose, MVVM, and Firebase Cloud Messaging",
         "Integrated QR-based registration, team management, and notifications",
         "Led a 7-member team and defined optimized Spring Boot API contracts",
       ],
       tags: ["Jetpack Compose", "MVVM", "Firebase", "Spring Boot", "QR Integration"],
-      githubUrl: "#",
-      demoUrl: "#",
+      demoUrl: "https://drive.google.com/file/d/1LriliZq2Wd1oUeAbhFs_kHJEXgWYoCYc/view",
+      status: "Under Institutional Review",
     },
     {
       title: "Healyks",
@@ -22,8 +22,8 @@ const Projects = () => {
         "Integrated Firebase Auth, RoomDB, and performance-optimized Compose UI",
       ],
       tags: ["Gemini API", "Firebase Auth", "RoomDB", "Jetpack Compose", "Offline-First"],
-      githubUrl: "#",
-      demoUrl: "#",
+      githubUrl: "https://github.com/Korags05/Healyks",
+      demoUrl: "https://drive.google.com/file/d/1X3XRc2IX3FOaajgvObD62dqLSlmPRWTT/view",
     },
     {
       title: "Raiders' Reckoning",
@@ -33,8 +33,8 @@ const Projects = () => {
         "Deployed full MVVM + Dagger Hilt architecture in one week",
       ],
       tags: ["MVVM", "Dagger Hilt", "Google Sign-In", "Real-time", "Gamification"],
-      githubUrl: "#",
-      demoUrl: "#",
+      githubUrl: "https://github.com/iot-lab-kiit/RaidersReckoningApp",
+      demoUrl: "https://drive.google.com/file/d/1HtcpXRu68lOK1bmQAcBO3BZjtinjQnnI/view",
     },
     {
       title: "FlashMob",

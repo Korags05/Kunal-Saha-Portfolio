@@ -1,46 +1,33 @@
 import { Card } from "@/components/ui/card";
 
 const TechStack = () => {
-  const technologies = [
-    { name: "Kotlin", category: "Language" },
-    { name: "Java", category: "Language" },
-    { name: "Python", category: "Language" },
-    { name: "C/C++", category: "Language" },
-    { name: "Jetpack Compose", category: "Android" },
-    { name: "MVVM", category: "Architecture" },
-    { name: "Dagger Hilt", category: "Android" },
-    { name: "RoomDB", category: "Database" },
-    { name: "Spring Boot", category: "Backend" },
-    { name: "REST APIs", category: "Backend" },
-    { name: "JWT", category: "Security" },
-    { name: "OAuth 2.0", category: "Security" },
-    { name: "Firebase", category: "Backend" },
-    { name: "PostgreSQL", category: "Database" },
-    { name: "Docker", category: "DevOps" },
-    { name: "Retrofit", category: "Networking" },
-    { name: "Gemini API", category: "AI" },
-    { name: "Git", category: "Tools" },
-    { name: "Gradle", category: "Tools" },
-    { name: "Linux", category: "OS" },
-    { name: "Figma", category: "Design" },
-    { name: "Android Studio", category: "IDE" },
+  const techCategories = [
+    {
+      title: "Languages",
+      color: "neon-orange",
+      techs: ["Kotlin", "Java", "Python", "C/C++"],
+    },
+    {
+      title: "Android",
+      color: "neon-pink",
+      techs: ["Jetpack Compose", "Android Studio", "MVVM", "Dagger Hilt", "RoomDB", "Retrofit", "Gradle"],
+    },
+    {
+      title: "Backend",
+      color: "neon-green",
+      techs: ["Spring Boot", "REST APIs", "JWT", "OAuth 2.0", "Docker", "Docker Compose", "Render"],
+    },
+    {
+      title: "Databases",
+      color: "neon-blue",
+      techs: ["PostgreSQL", "Oracle", "MySQL", "NeonDB", "Render DB"],
+    },
+    {
+      title: "Tools & Platforms",
+      color: "primary",
+      techs: ["Git/GitHub", "Linux", "Figma", "MCP Servers", "Firebase"],
+    },
   ];
-
-  const categoryColors: Record<string, string> = {
-    Language: "border-primary/50 text-primary",
-    Android: "border-android-pink/50 text-android-pink",
-    Backend: "border-accent/50 text-accent",
-    Architecture: "border-primary/50 text-primary",
-    Database: "border-secondary/50 text-secondary",
-    Security: "border-accent/50 text-accent",
-    Networking: "border-primary/50 text-primary",
-    AI: "border-secondary/50 text-secondary",
-    DevOps: "border-accent/50 text-accent",
-    Tools: "border-primary/50 text-primary",
-    Design: "border-secondary/50 text-secondary",
-    IDE: "border-android-pink/50 text-android-pink",
-    OS: "border-primary/50 text-primary",
-  };
 
   return (
     <section id="tech-stack" className="py-24 px-4 bg-gradient-to-b from-background to-card/20">
@@ -55,19 +42,30 @@ const TechStack = () => {
           </p>
         </div>
 
-        <Card className="p-8 bg-card-glass backdrop-blur-sm border-border/50 animate-fade-in-up">
-          <div className="flex flex-wrap gap-3">
-            {technologies.map((tech, index) => (
-              <div
-                key={index}
-                className={`group px-4 py-2 rounded-lg border-2 ${categoryColors[tech.category]} bg-card/50 backdrop-blur-sm hover:scale-110 hover:shadow-lg transition-all duration-300 cursor-default`}
-                style={{ animationDelay: `${index * 30}ms` }}
-              >
-                <span className="font-mono font-medium text-sm">{tech.name}</span>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in-up">
+          {techCategories.map((category, catIndex) => (
+            <Card 
+              key={catIndex} 
+              className="p-6 bg-card-glass backdrop-blur-sm border-border/50 hover:border-border transition-all duration-300"
+              style={{ animationDelay: `${catIndex * 100}ms` }}
+            >
+              <h3 className={`text-xl font-bold mb-4 text-${category.color}`}>
+                {category.title}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {category.techs.map((tech, techIndex) => (
+                  <div
+                    key={techIndex}
+                    className={`px-3 py-1.5 rounded-lg border-2 border-${category.color}/50 text-${category.color} bg-card/50 backdrop-blur-sm hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-default`}
+                    style={{ animationDelay: `${(catIndex * category.techs.length + techIndex) * 30}ms` }}
+                  >
+                    <span className="font-mono font-medium text-xs">{tech}</span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </Card>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   );

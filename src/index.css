@@ -38,6 +38,12 @@
     --android-pink: 330 100% 65%;
     --android-pink-foreground: 210 40% 98%;
 
+    /* Tech stack colors */
+    --neon-orange: 25 100% 55%;
+    --neon-pink: 330 100% 70%;
+    --neon-green: 145 80% 55%;
+    --neon-blue: 200 100% 60%;
+
     --muted: 220 30% 20%;
     --muted-foreground: 215 20% 65%;
 

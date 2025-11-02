@@ -51,6 +51,10 @@ export default {
           DEFAULT: "hsl(var(--android-pink))",
           foreground: "hsl(var(--android-pink-foreground))",
         },
+        "neon-orange": "hsl(var(--neon-orange))",
+        "neon-pink": "hsl(var(--neon-pink))",
+        "neon-green": "hsl(var(--neon-green))",
+        "neon-blue": "hsl(var(--neon-blue))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
