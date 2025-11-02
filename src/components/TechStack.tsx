@@ -28,7 +28,7 @@ const TechStack = () => {
 
   const categoryColors: Record<string, string> = {
     Language: "border-primary/50 text-primary",
-    Android: "border-secondary/50 text-secondary",
+    Android: "border-android-pink/50 text-android-pink",
     Backend: "border-accent/50 text-accent",
     Architecture: "border-primary/50 text-primary",
     Database: "border-secondary/50 text-secondary",
@@ -38,7 +38,7 @@ const TechStack = () => {
     DevOps: "border-accent/50 text-accent",
     Tools: "border-primary/50 text-primary",
     Design: "border-secondary/50 text-secondary",
-    IDE: "border-accent/50 text-accent",
+    IDE: "border-android-pink/50 text-android-pink",
     OS: "border-primary/50 text-primary",
   };
 

@@ -34,6 +34,10 @@
     --accent-foreground: 210 40% 98%;
     --accent-glow: 200 100% 60%;
 
+    /* Bright pink for Android */
+    --android-pink: 330 100% 65%;
+    --android-pink-foreground: 210 40% 98%;
+
     --muted: 220 30% 20%;
     --muted-foreground: 215 20% 65%;
 
