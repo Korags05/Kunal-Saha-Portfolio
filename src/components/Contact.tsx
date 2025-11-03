@@ -5,12 +5,22 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Github, Linkedin, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  subject: z.string().trim().min(1, "Subject is required").max(200, "Subject must be less than 200 characters"),
+  message: z.string().trim().min(1, "Message is required").max(1000, "Message must be less than 1000 characters"),
+});
 
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -19,15 +29,40 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Validate form data
+      const validatedData = contactSchema.parse(formData);
+
+      // Call edge function to send email
+      const { error } = await supabase.functions.invoke('send-contact-email', {
+        body: validatedData,
+      });
+
+      if (error) throw error;
+
       toast({
         title: "Message sent! ✨",
         description: "Thanks for reaching out. I'll get back to you soon!",
       });
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      if (error instanceof z.ZodError) {
+        toast({
+          title: "Validation Error",
+          description: error.errors[0].message,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   const socialLinks = [
@@ -95,6 +130,20 @@ const Contact = () => {
                   placeholder="your.email@example.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  required
+                  className="bg-background/50 border-border/50 focus:border-primary transition-colors"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="subject" className="text-sm font-medium text-foreground">
+                  Subject
+                </label>
+                <Input
+                  id="subject"
+                  placeholder="What's this about?"
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   required
                   className="bg-background/50 border-border/50 focus:border-primary transition-colors"
                 />
