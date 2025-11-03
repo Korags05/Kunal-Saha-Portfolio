@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Github, Mail, FileText } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
-import kunalImage from "@/assets/kunal-no-bg.png";
+import kunalImage from "@/assets/kunal-original.jpg";
 
 const Hero = () => {
   return (
@@ -9,7 +9,7 @@ const Hero = () => {
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left side - Image */}
-          <div className="flex justify-center md:justify-end order-1 md:order-1">
+          <div className="flex justify-center md:justify-start order-1 md:order-1 md:-ml-8">
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-neon-orange via-neon-pink to-neon-lime-green rounded-full blur-lg opacity-50 group-hover:opacity-75 transition duration-300"></div>
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/30">
