@@ -26,6 +26,11 @@ const AnimatedBackground = () => {
           backgroundSize: '50px 50px',
         }}
       />
+      
+      {/* Floating orbs */}
+      <div className="absolute top-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '0s', animationDuration: '8s' }} />
+      <div className="absolute bottom-32 right-20 w-80 h-80 bg-secondary/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s', animationDuration: '10s' }} />
+      <div className="absolute top-1/3 right-1/4 w-56 h-56 bg-accent/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s', animationDuration: '12s' }} />
     </div>
   );
 };

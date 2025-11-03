@@ -7,6 +7,7 @@ import { Mail, Github, Linkedin, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -17,6 +18,9 @@ const contactSchema = z.object({
 
 const Contact = () => {
   const { toast } = useToast();
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: formRef, isVisible: formVisible } = useScrollAnimation();
+  const { ref: linksRef, isVisible: linksVisible } = useScrollAnimation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -92,7 +96,10 @@ const Contact = () => {
   return (
     <section id="contact" className="py-24 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="space-y-4 mb-12 animate-fade-in-up text-center">
+        <div 
+          ref={titleRef}
+          className={`space-y-4 mb-12 text-center scroll-fade-in ${titleVisible ? 'visible' : ''}`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold">
             Let's <span className="text-primary">Collaborate</span>
           </h2>
@@ -104,7 +111,11 @@ const Contact = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Form */}
-          <Card className="p-8 bg-card-glass backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 animate-scale-in">
+          <div
+            ref={formRef}
+            className={`scroll-slide-left ${formVisible ? 'visible' : ''}`}
+          >
+            <Card className="p-8 bg-card-glass backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover-lift hover-glow">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium text-foreground">
@@ -180,14 +191,18 @@ const Contact = () => {
               </Button>
             </form>
           </Card>
+          </div>
 
           {/* Social Links */}
-          <div className="space-y-4">
+          <div 
+            ref={linksRef}
+            className={`space-y-4 scroll-slide-right ${linksVisible ? 'visible' : ''}`}
+          >
             {socialLinks.map((link, index) => (
               <Card
                 key={index}
-                className="p-6 bg-card-glass backdrop-blur-sm border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] animate-fade-in-up cursor-pointer"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="p-6 bg-card-glass backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all duration-300 hover-lift hover-glow cursor-pointer"
+                style={{ transitionDelay: `${index * 100}ms` }}
                 onClick={() => window.open(link.href, '_blank')}
               >
                 <div className="flex items-center gap-4">

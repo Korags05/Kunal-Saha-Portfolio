@@ -1,7 +1,10 @@
 import { Card } from "@/components/ui/card";
-import { Users, Code, Award } from "lucide-react";
+import { Users, Code } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Leadership = () => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation();
   const roles = [
     {
       icon: Users,
@@ -29,19 +32,25 @@ const Leadership = () => {
   return (
     <section id="leadership" className="py-24 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="space-y-4 mb-12 animate-fade-in-up">
+        <div 
+          ref={titleRef}
+          className={`space-y-4 mb-12 scroll-fade-in ${titleVisible ? 'visible' : ''}`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold">
             Leadership & <span className="text-secondary">Involvement</span>
           </h2>
           <div className="h-1 w-24 bg-gradient-to-r from-secondary to-accent rounded-full"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div 
+          ref={cardsRef}
+          className={`grid md:grid-cols-2 gap-6 scroll-scale-in ${cardsVisible ? 'visible' : ''}`}
+        >
           {roles.map((role, index) => (
             <Card
               key={index}
-              className="p-6 bg-card-glass backdrop-blur-sm border-border/50 hover:border-secondary/50 transition-all duration-300 hover:shadow-lg hover:shadow-secondary/10 animate-scale-in"
-              style={{ animationDelay: `${index * 150}ms` }}
+              className="p-6 bg-card-glass backdrop-blur-sm border-border/50 hover:border-secondary/50 transition-all duration-300 hover-lift hover-glow animate-pulse-glow"
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="flex items-start gap-4 mb-4">
                 <div className="p-3 rounded-lg bg-secondary/10 text-secondary">

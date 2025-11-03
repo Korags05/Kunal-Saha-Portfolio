@@ -10,13 +10,13 @@ const Hero = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left side - Image */}
           <div className="flex justify-center md:justify-start order-1 md:order-1 md:-ml-8">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-neon-orange via-neon-pink to-neon-lime-green rounded-full blur-lg opacity-50 group-hover:opacity-75 transition duration-300"></div>
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/30">
+            <div className="relative group animate-float">
+              <div className="absolute -inset-1 bg-gradient-to-r from-neon-orange via-neon-pink to-neon-lime-green rounded-full blur-lg opacity-50 group-hover:opacity-75 transition duration-300 animate-pulse-glow"></div>
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/30 hover:border-primary/50 transition-all duration-300 hover:scale-105">
                 <img 
                   src={kunalImage} 
                   alt="Kunal Saha" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   style={{ 
                     mixBlendMode: 'normal',
                     filter: 'brightness(1.1) contrast(1.1)'
@@ -107,9 +107,9 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="pt-12 animate-float text-center">
-          <div className="w-6 h-10 border-2 border-primary/50 rounded-full mx-auto flex justify-center">
+          {/* Scroll indicator */}
+        <div className="pt-12 text-center animate-float">
+          <div className="w-6 h-10 border-2 border-primary/50 rounded-full mx-auto flex justify-center hover:border-primary transition-colors">
             <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>

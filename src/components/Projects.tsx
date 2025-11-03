@@ -1,6 +1,9 @@
 import ProjectCard from "./ProjectCard";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Projects = () => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
   const projects = [
     {
       title: "NexterDay",
@@ -55,7 +58,10 @@ const Projects = () => {
   return (
     <section id="projects" className="py-24 px-4 bg-gradient-to-b from-background to-card/20">
       <div className="max-w-6xl mx-auto">
-        <div className="space-y-4 mb-12 animate-fade-in-up">
+        <div 
+          ref={titleRef}
+          className={`space-y-4 mb-12 scroll-fade-in ${titleVisible ? 'visible' : ''}`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold">
             Featured <span className="text-primary">Projects</span>
           </h2>
@@ -65,11 +71,15 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div 
+          ref={gridRef}
+          className={`grid md:grid-cols-2 gap-6 scroll-scale-in ${gridVisible ? 'visible' : ''}`}
+        >
           {projects.map((project, index) => (
             <div
               key={index}
-              style={{ animationDelay: `${index * 150}ms` }}
+              className="hover-lift"
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <ProjectCard {...project} />
             </div>

@@ -1,7 +1,11 @@
 import { Card } from "@/components/ui/card";
 import { MapPin, GraduationCap, Code2, Boxes } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const About = () => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: bioRef, isVisible: bioVisible } = useScrollAnimation();
+  const { ref: factsRef, isVisible: factsVisible } = useScrollAnimation();
   const facts = [
     {
       icon: MapPin,
@@ -28,7 +32,10 @@ const About = () => {
   return (
     <section id="about" className="py-24 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="space-y-4 mb-12 animate-fade-in-up">
+        <div 
+          ref={titleRef}
+          className={`space-y-4 mb-12 scroll-fade-in ${titleVisible ? 'visible' : ''}`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold">
             About <span className="text-primary">Me</span>
           </h2>
@@ -37,7 +44,11 @@ const About = () => {
 
         <div className="grid md:grid-cols-2 gap-8 items-start">
           {/* Bio */}
-          <Card className="p-8 bg-card-glass backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 animate-fade-in-up">
+          <div
+            ref={bioRef}
+            className={`scroll-slide-left ${bioVisible ? 'visible' : ''}`}
+          >
+            <Card className="p-8 bg-card-glass backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 hover-lift hover-glow">
             <p className="text-lg text-muted-foreground leading-relaxed">
               I design seamless experiences across Android and backend — from{" "}
               <span className="text-primary font-semibold">Jetpack Compose UIs</span> to secure{" "}
@@ -48,14 +59,18 @@ const About = () => {
               My code reflects <span className="text-foreground font-semibold">clarity, performance, and purpose</span>.
             </p>
           </Card>
+          </div>
 
           {/* Quick Facts */}
-          <div className="space-y-4">
+          <div 
+            ref={factsRef}
+            className={`space-y-4 scroll-slide-right ${factsVisible ? 'visible' : ''}`}
+          >
             {facts.map((fact, index) => (
               <Card
                 key={index}
-                className="p-6 bg-card-glass backdrop-blur-sm border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] animate-fade-in-up"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="p-6 bg-card-glass backdrop-blur-sm border-border/50 hover:border-primary/30 transition-all duration-300 hover-lift hover-glow"
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="flex items-start gap-4">
                   <div className="p-3 rounded-lg bg-primary/10 text-primary">

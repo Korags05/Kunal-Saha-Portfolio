@@ -14,11 +14,11 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ title, description, highlights, tags, githubUrl, demoUrl, status }: ProjectCardProps) => {
   return (
-    <Card className="group relative overflow-hidden bg-card-glass backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-lg hover:shadow-primary/20 animate-scale-in">
+    <Card className="group relative overflow-hidden bg-card-glass backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-500 hover-lift hover-glow">
       {/* Status badge */}
       {status && (
         <div className="absolute top-4 right-4 z-10">
-          <span className="px-3 py-1 text-xs font-semibold rounded-full bg-secondary/20 text-secondary border border-secondary/30">
+          <span className="px-3 py-1 text-xs font-semibold rounded-full bg-secondary/20 text-secondary border border-secondary/30 animate-pulse-glow">
             {status}
           </span>
         </div>
@@ -29,7 +29,7 @@ const ProjectCard = ({ title, description, highlights, tags, githubUrl, demoUrl,
 
       <div className="relative p-6 space-y-4">
         {/* Title */}
-        <h3 className="text-2xl font-bold group-hover:text-primary transition-colors duration-300">
+        <h3 className="text-2xl font-bold group-hover:text-primary transition-colors duration-300 group-hover:scale-105 inline-block">
           {title}
         </h3>
 
@@ -53,7 +53,7 @@ const ProjectCard = ({ title, description, highlights, tags, githubUrl, demoUrl,
           {tags.map((tag, index) => (
             <span
               key={index}
-              className="px-3 py-1 text-xs font-mono rounded-md bg-muted/50 text-muted-foreground border border-border/50"
+              className="px-3 py-1 text-xs font-mono rounded-md bg-muted/50 text-muted-foreground border border-border/50 hover:border-primary/50 hover:text-primary hover:scale-110 transition-all duration-300 cursor-default"
             >
               {tag}
             </span>
@@ -66,7 +66,7 @@ const ProjectCard = ({ title, description, highlights, tags, githubUrl, demoUrl,
             <Button
               variant="outline"
               size="sm"
-              className="border-primary/50 text-primary hover:bg-primary/10 hover:border-primary transition-all duration-300"
+              className="border-primary/50 text-primary hover:bg-primary/10 hover:border-primary transition-all duration-300 hover:scale-110"
               onClick={() => window.open(githubUrl, '_blank')}
             >
               <Github className="mr-2 h-4 w-4" />
@@ -77,7 +77,7 @@ const ProjectCard = ({ title, description, highlights, tags, githubUrl, demoUrl,
             <Button
               variant="outline"
               size="sm"
-              className="border-secondary/50 text-secondary hover:bg-secondary/10 hover:border-secondary transition-all duration-300"
+              className="border-secondary/50 text-secondary hover:bg-secondary/10 hover:border-secondary transition-all duration-300 hover:scale-110"
               onClick={() => window.open(demoUrl, '_blank')}
             >
               <ExternalLink className="mr-2 h-4 w-4" />

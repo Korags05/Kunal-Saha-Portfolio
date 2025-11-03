@@ -1,6 +1,9 @@
 import { Card } from "@/components/ui/card";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const TechStack = () => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
   const techCategories = [
     {
       title: "Languages",
@@ -37,7 +40,10 @@ const TechStack = () => {
   return (
     <section id="tech-stack" className="py-24 px-4 bg-gradient-to-b from-background to-card/20">
       <div className="max-w-6xl mx-auto">
-        <div className="space-y-4 mb-12 animate-fade-in-up">
+        <div 
+          ref={titleRef}
+          className={`space-y-4 mb-12 scroll-fade-in ${titleVisible ? 'visible' : ''}`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold">
             Tech <span className="text-accent">Stack</span>
           </h2>
@@ -47,12 +53,15 @@ const TechStack = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in-up">
+        <div 
+          ref={gridRef}
+          className={`grid md:grid-cols-2 lg:grid-cols-3 gap-6 scroll-scale-in ${gridVisible ? 'visible' : ''}`}
+        >
           {techCategories.map((category, catIndex) => (
             <Card 
               key={catIndex} 
-              className="p-6 bg-card-glass backdrop-blur-sm border-border/50 hover:border-border transition-all duration-300"
-              style={{ animationDelay: `${catIndex * 100}ms` }}
+              className="p-6 bg-card-glass backdrop-blur-sm border-border/50 hover:border-border transition-all duration-300 hover-lift hover-glow"
+              style={{ transitionDelay: `${catIndex * 100}ms` }}
             >
               <h3 className={`text-xl font-bold mb-4 ${category.textColor}`}>
                 {category.title}
