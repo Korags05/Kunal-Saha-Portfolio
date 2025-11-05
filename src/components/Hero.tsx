@@ -38,10 +38,12 @@ const Hero = () => {
             </div>
 
             {/* Name with typing animation */}
-            <div className="space-y-2">
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-                I am{" "}
-                <span className="inline-block min-w-[280px] md:min-w-[480px] bg-gradient-to-r from-neon-orange via-neon-pink to-neon-lime-green bg-clip-text text-transparent">
+            <div className="space-y-4">
+              <div className="min-h-[120px] sm:min-h-[100px] md:min-h-[80px]">
+                <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+                  I am{" "}
+                </h1>
+                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-neon-orange via-neon-pink to-neon-lime-green bg-clip-text text-transparent">
                   <TypeAnimation
                     sequence={[
                       'Kunal',
@@ -57,8 +59,8 @@ const Hero = () => {
                     speed={50}
                     repeat={Infinity}
                   />
-                </span>
-              </h1>
+                </div>
+              </div>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                 a developer passionate about building performant, user-focused systems and leading impactful tech projects. 
                 Currently pursuing B.Tech in Computer Science at{" "}
