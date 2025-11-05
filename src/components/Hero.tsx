@@ -38,10 +38,10 @@ const Hero = () => {
             </div>
 
             {/* Name with typing animation */}
-            <div className="space-y-2 min-h-[180px] md:min-h-[200px]">
+            <div className="space-y-2">
               <h1 className="text-4xl md:text-5xl font-bold text-foreground">
                 I am{" "}
-                <span className="bg-gradient-to-r from-neon-orange via-neon-pink to-neon-lime-green bg-clip-text text-transparent">
+                <span className="inline-block min-w-[280px] md:min-w-[480px] bg-gradient-to-r from-neon-orange via-neon-pink to-neon-lime-green bg-clip-text text-transparent">
                   <TypeAnimation
                     sequence={[
                       'Kunal',
