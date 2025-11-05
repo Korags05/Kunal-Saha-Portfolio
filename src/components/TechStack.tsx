@@ -1,39 +1,79 @@
 import { Card } from "@/components/ui/card";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Code2, Smartphone, Server, Database, Wrench, Coffee, Box, Lock, Container, Github, Figma, Flame } from "lucide-react";
 
 const TechStack = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
-  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
+  
   const techCategories = [
     {
       title: "Languages",
       borderColor: "border-neon-orange/50",
       textColor: "text-neon-orange",
-      techs: ["Kotlin", "Java", "Python", "C/C++"],
+      bgGradient: "from-neon-orange/20 to-neon-orange/5",
+      techs: [
+        { name: "Kotlin", icon: Code2 },
+        { name: "Java", icon: Coffee },
+        { name: "Python", icon: Code2 },
+        { name: "C/C++", icon: Code2 },
+      ],
     },
     {
       title: "Android",
       borderColor: "border-neon-pink/50",
       textColor: "text-neon-pink",
-      techs: ["Jetpack Compose", "Android Studio", "MVVM", "Dagger Hilt", "RoomDB", "Retrofit", "Gradle"],
+      bgGradient: "from-neon-pink/20 to-neon-pink/5",
+      techs: [
+        { name: "Jetpack Compose", icon: Smartphone },
+        { name: "Android Studio", icon: Code2 },
+        { name: "MVVM", icon: Box },
+        { name: "Dagger Hilt", icon: Box },
+        { name: "RoomDB", icon: Database },
+        { name: "Retrofit", icon: Server },
+        { name: "Gradle", icon: Wrench },
+      ],
     },
     {
       title: "Backend",
       borderColor: "border-neon-lime-green/50",
       textColor: "text-neon-lime-green",
-      techs: ["Spring Boot", "REST APIs", "JWT", "OAuth 2.0", "Docker", "Docker Compose", "Render"],
+      bgGradient: "from-neon-lime-green/20 to-neon-lime-green/5",
+      techs: [
+        { name: "Spring Boot", icon: Server },
+        { name: "REST APIs", icon: Server },
+        { name: "JWT", icon: Lock },
+        { name: "OAuth 2.0", icon: Lock },
+        { name: "Docker", icon: Container },
+        { name: "Docker Compose", icon: Container },
+        { name: "Render", icon: Server },
+      ],
     },
     {
       title: "Databases",
       borderColor: "border-neon-sky-blue/50",
       textColor: "text-neon-sky-blue",
-      techs: ["PostgreSQL", "Oracle", "MySQL", "NeonDB", "Render DB"],
+      bgGradient: "from-neon-sky-blue/20 to-neon-sky-blue/5",
+      techs: [
+        { name: "PostgreSQL", icon: Database },
+        { name: "Oracle", icon: Database },
+        { name: "MySQL", icon: Database },
+        { name: "NeonDB", icon: Database },
+        { name: "Render DB", icon: Database },
+      ],
     },
     {
       title: "Tools & Platforms",
       borderColor: "border-neon-silver/50",
       textColor: "text-neon-silver",
-      techs: ["Git/GitHub", "Linux", "Figma", "MCP Servers", "Firebase"],
+      bgGradient: "from-neon-silver/20 to-neon-silver/5",
+      techs: [
+        { name: "Git/GitHub", icon: Github },
+        { name: "Linux", icon: Server },
+        { name: "Figma", icon: Figma },
+        { name: "MCP Servers", icon: Server },
+        { name: "Firebase", icon: Flame },
+      ],
     },
   ];
 
@@ -42,44 +82,56 @@ const TechStack = () => {
       <div className="max-w-6xl mx-auto">
         <div 
           ref={titleRef}
-          className={`space-y-4 mb-12 scroll-fade-in ${titleVisible ? 'visible' : ''}`}
+          className={`space-y-4 mb-12 text-center scroll-fade-in ${titleVisible ? 'visible' : ''}`}
         >
           <h2 className="text-4xl md:text-5xl font-bold">
             Tech <span className="text-accent">Stack</span>
           </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-accent to-primary rounded-full"></div>
-          <p className="text-muted-foreground text-lg max-w-2xl">
+          <div className="h-1 w-24 bg-gradient-to-r from-accent to-primary rounded-full mx-auto"></div>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Technologies and tools I use to build modern, scalable applications.
           </p>
         </div>
 
-        <div 
-          ref={gridRef}
-          className={`grid md:grid-cols-2 lg:grid-cols-3 gap-6 scroll-scale-in ${gridVisible ? 'visible' : ''}`}
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-5xl mx-auto"
         >
-          {techCategories.map((category, catIndex) => (
-            <Card 
-              key={catIndex} 
-              className="p-6 bg-card-glass backdrop-blur-sm border-border/50 hover:border-border transition-all duration-300 hover-lift hover-glow"
-              style={{ transitionDelay: `${catIndex * 100}ms` }}
-            >
-              <h3 className={`text-xl font-bold mb-4 ${category.textColor}`}>
-                {category.title}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {category.techs.map((tech, techIndex) => (
-                  <div
-                    key={techIndex}
-                    className={`px-3 py-1.5 rounded-lg border-2 ${category.borderColor} ${category.textColor} bg-card/50 backdrop-blur-sm hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-default`}
-                    style={{ animationDelay: `${(catIndex * category.techs.length + techIndex) * 30}ms` }}
-                  >
-                    <span className="font-mono font-medium text-xs">{tech}</span>
+          <CarouselContent>
+            {techCategories.map((category, catIndex) => (
+              <CarouselItem key={catIndex}>
+                <Card 
+                  className={`p-8 bg-gradient-to-br ${category.bgGradient} backdrop-blur-sm border-2 ${category.borderColor} hover-glow transition-all duration-300`}
+                >
+                  <h3 className={`text-3xl font-bold mb-8 text-center ${category.textColor}`}>
+                    {category.title}
+                  </h3>
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {category.techs.map((tech, techIndex) => {
+                      const Icon = tech.icon;
+                      return (
+                        <div
+                          key={techIndex}
+                          className={`flex flex-col items-center gap-3 p-4 rounded-xl border-2 ${category.borderColor} bg-card/30 backdrop-blur-sm hover:scale-110 hover:shadow-xl transition-all duration-300 cursor-default group`}
+                        >
+                          <Icon className={`w-10 h-10 ${category.textColor} group-hover:scale-125 transition-transform duration-300`} />
+                          <span className={`font-medium text-sm text-center ${category.textColor}`}>
+                            {tech.name}
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
-                ))}
-              </div>
-            </Card>
-          ))}
-        </div>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hidden md:flex -left-12" />
+          <CarouselNext className="hidden md:flex -right-12" />
+        </Carousel>
       </div>
     </section>
   );
