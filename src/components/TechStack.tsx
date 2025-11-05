@@ -2,9 +2,14 @@ import { Card } from "@/components/ui/card";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Code2, Smartphone, Server, Database, Wrench, Coffee, Box, Lock, Container, Github, Figma, Flame } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 const TechStack = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const plugin = useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true })
+  );
   
   const techCategories = [
     {
@@ -98,6 +103,7 @@ const TechStack = () => {
             align: "start",
             loop: true,
           }}
+          plugins={[plugin.current]}
           className="w-full max-w-5xl mx-auto"
         >
           <CarouselContent>

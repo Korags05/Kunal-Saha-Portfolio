@@ -38,7 +38,7 @@ const Hero = () => {
             </div>
 
             {/* Name with typing animation */}
-            <div className="space-y-2">
+            <div className="space-y-2 min-h-[180px] md:min-h-[200px]">
               <h1 className="text-4xl md:text-5xl font-bold text-foreground">
                 I am{" "}
                 <span className="bg-gradient-to-r from-neon-orange via-neon-pink to-neon-lime-green bg-clip-text text-transparent">
