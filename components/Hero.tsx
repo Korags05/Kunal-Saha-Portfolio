@@ -75,7 +75,7 @@ export default function Hero() {
 
             {/* Image */}
             <Image
-              src="/images/hero_image_portf.png"
+              src="/hero_image_portf.png"
               alt="Kunal Saha"
               fill
               priority

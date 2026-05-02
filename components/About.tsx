@@ -65,7 +65,7 @@ export default function About() {
           <motion.div variants={imageVariants} className="flex justify-center md:justify-start">
             <div className="w-full max-w-xs md:max-w-full aspect-[4/5] relative rounded-2xl overflow-hidden shadow-lg">
               <Image
-                src="/images/kunal_laptop.png"
+                src="/kunal_laptop.png"
                 alt="Kunal"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
