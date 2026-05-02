@@ -5,6 +5,19 @@
   --foreground: #171717;
 }
 
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.1;
+  mix-blend-mode: normal;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -19,8 +32,111 @@
   }
 }
 
+/* Smooth scroll behavior - only on devices that support it */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Respect user's motion preferences for performance */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Subtle animations - only apply when motion is not reduced */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.pulse-subtle-animation {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+/* Only apply transitions to specific interactive elements for performance */
+a,
+button {
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, 
+              border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Optimize for mobile rendering */
+@media (max-width: 768px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+
+  /* Reduce animation on mobile */
+  @media (prefers-reduced-motion: no-preference) {
+    * {
+      animation-duration: 0.2s !important;
+    }
+  }
+}
+
+/* Gradient text accent */
+.gradient-text {
+  background: linear-gradient(135deg, #E85D3F 0%, #D24A2A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Improve font rendering */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Optimize links for touch */
+@media (hover: none) and (pointer: coarse) {
+  a {
+    padding: 0.5rem;
+    margin: -0.5rem;
+  }
+}
+
+/* Performance optimization for scrolling */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  contain: layout style paint;
+  scroll-behavior: smooth;
+  will-change: scroll-position;
+}
+
+/* Optimize nav performance */
+nav {
+  will-change: transform;
 }
