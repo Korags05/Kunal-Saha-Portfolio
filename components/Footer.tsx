@@ -126,7 +126,7 @@ export default function Footer() {
             © {currentYear} {personalInfo.name}. All rights reserved.
           </p>
           <p>
-            Built with ❤️ and ☕
+            Built with ❤️ & ☕
           </p>
         </motion.div>
       </div>
