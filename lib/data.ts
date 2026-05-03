@@ -21,7 +21,7 @@ export const projects = [
     technologies: ["Java", "Spring Boot", "PostgreSQL", "Uber H3", "Supabase", "React", "Cloudflare Pages"],
     github: "https://github.com/Korags05/Plotrix",
     featured: true,
-    image: "/plotrix.png",
+    image: "/images/plotrix.png",
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ export const projects = [
     technologies: ["Kotlin", "Android", "Jetpack Compose", "Dagger Hilt", "Firebase", "RoomDB", "REST API", "MVVM"],
     github: "https://github.com/Korags05/Healyks",
     featured: false,
-    image: "/healyks.png",
+    image: "/images/healyks.png",
   },
   {
     id: 3,
@@ -40,7 +40,7 @@ export const projects = [
     technologies: ["Kotlin", "Jetpack Compose", "Dagger Hilt", "Firebase", "Android", "REST API", "MVVM"],
     github: "https://github.com/iot-lab-kiit/RaidersReckoningApp",
     featured: false,
-    image: "/raiders.png",
+    image: "/images/raiders.png",
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ export const projects = [
     github: "#",
     featured: true,
     status: "upcoming",
-    image: "/flashmob_icon.png",
+    image: "/images/flashmob_icon.png",
   },
 ];
 
